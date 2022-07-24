@@ -91,40 +91,65 @@ function ShowSearchResult(props) {
     <main>
       {loading || !movie ? (
         <div className={styles.notConnected}>
-          <Image src="/loading-bar.png" width="100px" height="100px" alt="Loading search result" />
+          <Image
+            src="/loading.png"
+            className={styles.loading}
+            width="100px"
+            height="100px"
+            alt="Loading search result"
+          />
         </div>
       ) : (
         <div>
           {notConnected ? (
             <div className={styles.notConnected}>
-              <Image src="/network-signal.png" width="100px" height="100px" alt="Not connected to the internet" />
+              <Image
+                src="/network-signal.png"
+                width="100px"
+                height="100px"
+                alt="Not connected to the internet"
+              />
               Not connected to the internet
             </div>
           ) : (
             <div>
-              {Object.keys(movie).map((category, index) => {
-                return (
-                  <div key={index}>
-                    <div className={styles.movie}>
-                      <div
-                        className={styles.movieCategory}
-                        style={{ textTransform: "capitalize" }}
-                      >
-                        {category}
-                      </div>
+              {movie = [] ? (
+                <div className={styles.notConnected}>
+                    <Image
+                src="/404.png"
+                width="100px"
+                height="100px"
+                alt="Not connected to the internet"
+              />
+                   {props.search} movie not found
                     </div>
-                    <div className={styles.movieGroup}>
-                      {movie[category].map((value, indexTwo) => {
-                        return (
-                          <div key={indexTwo} className={styles.movieName}>
-                            <span>{value.Title}</span>
+              ) : (
+                <div>
+                  {Object.keys(movie).map((category, index) => {
+                    return (
+                      <div key={index}>
+                        <div className={styles.movie}>
+                          <div
+                            className={styles.movieCategory}
+                            style={{ textTransform: "capitalize" }}
+                          >
+                            {category}
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+                        </div>
+                        <div className={styles.movieGroup}>
+                          {movie[category].map((value, indexTwo) => {
+                            return (
+                              <div key={indexTwo} className={styles.movieName}>
+                                <span>{value.Title}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -136,7 +161,12 @@ function ShowSearchResult(props) {
 function NoSearchResult() {
   return (
     <main className={styles.searchAMovie}>
-      <Image src="/video-play.png" width="100px" height="100px" alt="Search a movie" />
+      <Image
+        src="/video-play.png"
+        width="100px"
+        height="100px"
+        alt="Search a movie"
+      />
       Search a movie
     </main>
   );
