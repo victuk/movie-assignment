@@ -10,9 +10,9 @@
   padding: 0 77px;
 }
 
-.search {
+/* .search {
   margin-bottom: 48px;
-}
+} */
 
 .search div {
   font-size: 24px;
@@ -23,6 +23,10 @@
 .container .search input {
   width: 100%;
   height: 54px;
+}
+
+.movie {
+  margin-top: 48px;
 }
 
 .movieCategory {
@@ -62,6 +66,17 @@
   flex-direction: column;
   align-content: center;
   align-items: center;
+  margin-top: 48px;
+}
+
+.notConnected {
+  text-align: center;
+  padding-right: 77px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin-top: 48px;
 }
 
 @media (min-width: 322px) and (max-width: 834px) {
@@ -69,9 +84,10 @@
     text-align: center;
     padding-left: 0;
   }
+
 }
 
-@media (max-width: 321px) {
+@media (max-width: 425px) {
 
   .showOnPhone {
     display: inline-block;
@@ -123,6 +139,15 @@
 
   .searchAMovie {
     text-align: center;
+  }
+
+  .notConnected {
+    text-align: center;
+    padding-right: 28px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
   }
 
   .container {

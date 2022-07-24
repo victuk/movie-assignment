@@ -56,11 +56,15 @@ export default function Home() {
 function ShowSearchResult(props) {
   let [movie, setMovie] = useState([]);
 
+  let [notConnected, setNotConnected] = useState(false);
+
+  let [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`https://www.omdbapi.com/?s=${props.search}&apikey=f7c29d6`)
       .then((res) => {
-        console.log(res.data.Search);
         var groupBy = function (xs, key) {
           return xs.reduce(function (rv, x) {
             (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -69,29 +73,59 @@ function ShowSearchResult(props) {
         };
         setMovie(groupBy(res.data.Search, "Type"));
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setLoading(false);
+        if (e.code == "ERR_NETWORK") {
+          setNotConnected(true);
+        } else {
+          setNotConnected(false);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [props.search]);
 
   return (
     <main>
-      {Object.keys(movie).map((category) => {
-        return (
-          <div>
-            <div className={styles.movie}>
-              <div className={styles.movieCategory}>{category}</div>
-            </div>
-            <div className={styles.movieGroup}>
-              {movie[category].map((value) => {
-                return (
-                  <div className={styles.movieName}>
-                    <span>{value.Title}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+      {loading || !movie ? (
+        <div className={styles.notConnected}>
+          <Image src="/loading-bar.png" width="100px" height="100px" />
+        </div>
+      ) : (
+        <div>
+            {notConnected ? (
+        <div className={styles.notConnected}>
+          <Image src="/network-signal.png" width="100px" height="100px" />
+          Not connected to the internet
+        </div>
+      ) : (
+        <div>
+          {Object.keys(movie).map((category) => {
+            return (
+              <div>
+                <div className={styles.movie}>
+                  <div className={styles.movieCategory} style={{textTransform: 'capitalize'}}>{category}</div>
+                </div>
+                <div className={styles.movieGroup}>
+                  {movie[category].map((value) => {
+                    return (
+                      <div className={styles.movieName}>
+                        <span>{value.Title}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+        </div>
+      )}
+
+      
     </main>
   );
 }

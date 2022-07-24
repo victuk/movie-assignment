@@ -5,6 +5,26 @@ body {
   /* width: 100%; */
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 header {
   background-color: #292929;
   height: 140px;
@@ -77,7 +97,7 @@ main {
   }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 425px) {
   header {
     height: 67px;
   display: flex;
