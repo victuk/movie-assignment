@@ -1,26 +1,138 @@
-html,
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  /* width: 100%; */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+header {
+  background-color: #292929;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-items: left;
+  padding: 0 77px;
 }
 
-* {
-  box-sizing: border-box;
+header div {
+  display: inline-block;
+  border: 1px solid #FFFFFF;
+  width: 193px;
+  height: 60px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  /* padding: 0 15px; */
+  color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+section {
+  height: 550px;
+  width: 100%;
+  background-image: url('/b02da0a986cf181384e8f65c83d112d4.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-items: left;
+  margin-bottom: 63px;
+}
+
+section div {
+  padding: 0 77px;
+}
+
+section div ul {
+  list-style: none;
+  padding: 0;
+}
+
+section div ul li {
+  color: #FFFFFF;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 93.74px;
+}
+
+main {
+  padding-left: 77px;
+  padding-bottom: 67px;
+}
+
+@media (min-width: 322px) and (max-width: 834px) {
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 0;
   }
-  body {
+
+  section {
+    display: flex;
+    justify-content: center;
+  }
+
+  section div ul {
+    text-align: center;
+  }
+}
+
+@media (max-width: 321px) {
+  header {
+    height: 67px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  }
+
+  header div {
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    width: 108px;
+    height: 33.58px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+      align-items: center;
+    /* padding: 0 15px; */
     color: white;
-    background: black;
   }
+
+  section {
+    height: 257px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 56px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  section div ul li {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36.46px;
+    text-align: center;
+  }
+
+  main {
+    padding-left: 28px;
+    padding-bottom: 50px;
+  }
+
+  section div {
+    padding: 0;
+  }
+
+  /* #parentDiv {
+    width: 100%;
+  } */
+
+  /* * {
+    border: 1px solid red;
+  } */
 }
+
+
