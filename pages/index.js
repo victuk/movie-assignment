@@ -107,6 +107,7 @@ function ShowSearchResult(props) {
                   <div>
                     <div className={styles.movie}>
                       <div
+                        key={index}
                         className={styles.movieCategory}
                         style={{ textTransform: "capitalize" }}
                       >
@@ -116,7 +117,7 @@ function ShowSearchResult(props) {
                     <div className={styles.movieGroup}>
                       {movie[category].map((value, indexTwo) => {
                         return (
-                          <div className={styles.movieName}>
+                          <div key={indexTwo} className={styles.movieName}>
                             <span>{value.Title}</span>
                           </div>
                         );
