@@ -104,10 +104,9 @@ function ShowSearchResult(props) {
             <div>
               {Object.keys(movie).map((category, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <div className={styles.movie}>
                       <div
-                        key={index}
                         className={styles.movieCategory}
                         style={{ textTransform: "capitalize" }}
                       >
