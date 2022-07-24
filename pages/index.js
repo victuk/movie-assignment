@@ -95,37 +95,40 @@ function ShowSearchResult(props) {
         </div>
       ) : (
         <div>
-            {notConnected ? (
-        <div className={styles.notConnected}>
-          <Image src="/network-signal.png" width="100px" height="100px" />
-          Not connected to the internet
-        </div>
-      ) : (
-        <div>
-          {Object.keys(movie).map((category) => {
-            return (
-              <div>
-                <div className={styles.movie}>
-                  <div className={styles.movieCategory} style={{textTransform: 'capitalize'}}>{category}</div>
-                </div>
-                <div className={styles.movieGroup}>
-                  {movie[category].map((value) => {
-                    return (
-                      <div className={styles.movieName}>
-                        <span>{value.Title}</span>
+          {notConnected ? (
+            <div className={styles.notConnected}>
+              <Image src="/network-signal.png" width="100px" height="100px" />
+              Not connected to the internet
+            </div>
+          ) : (
+            <div>
+              {Object.keys(movie).map((category) => {
+                return (
+                  <div>
+                    <div className={styles.movie}>
+                      <div
+                        className={styles.movieCategory}
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        {category}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+                    </div>
+                    <div className={styles.movieGroup}>
+                      {movie[category].map((value) => {
+                        return (
+                          <div className={styles.movieName}>
+                            <span>{value.Title}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
-        </div>
-      )}
-
-      
     </main>
   );
 }
