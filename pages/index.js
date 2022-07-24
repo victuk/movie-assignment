@@ -136,7 +136,7 @@ function ShowSearchResult(props) {
 function NoSearchResult() {
   return (
     <main className={styles.searchAMovie}>
-      <Image src="/video-play.png" width="100px" height="100px" />
+      <Image src="/video-play.png" width="100px" height="100px" alt="Search a movie" />
       Search a movie
     </main>
   );
