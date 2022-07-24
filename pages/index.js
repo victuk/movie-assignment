@@ -119,7 +119,7 @@ function ShowSearchResult(props) {
                 src="/404.png"
                 width="100px"
                 height="100px"
-                alt="Not connected to the internet"
+                alt="Movie Not found"
               />
                    {props.search} movie not found
                     </div>
