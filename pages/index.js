@@ -113,7 +113,7 @@ function ShowSearchResult(props) {
             </div>
           ) : (
             <div>
-              {movie = [] ? (
+              {movie.length == 0 ? (
                 <div className={styles.notConnected}>
                     <Image
                 src="/404.png"
