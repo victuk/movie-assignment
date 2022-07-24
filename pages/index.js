@@ -91,18 +91,18 @@ function ShowSearchResult(props) {
     <main>
       {loading || !movie ? (
         <div className={styles.notConnected}>
-          <Image src="/loading-bar.png" width="100px" height="100px" />
+          <Image src="/loading-bar.png" width="100px" height="100px" alt="Loading search result" />
         </div>
       ) : (
         <div>
           {notConnected ? (
             <div className={styles.notConnected}>
-              <Image src="/network-signal.png" width="100px" height="100px" />
+              <Image src="/network-signal.png" width="100px" height="100px" alt="Not connected to the internet" />
               Not connected to the internet
             </div>
           ) : (
             <div>
-              {Object.keys(movie).map((category) => {
+              {Object.keys(movie).map((category, index) => {
                 return (
                   <div>
                     <div className={styles.movie}>
@@ -114,7 +114,7 @@ function ShowSearchResult(props) {
                       </div>
                     </div>
                     <div className={styles.movieGroup}>
-                      {movie[category].map((value) => {
+                      {movie[category].map((value, indexTwo) => {
                         return (
                           <div className={styles.movieName}>
                             <span>{value.Title}</span>
